@@ -1,0 +1,97 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 15, 15, 0.85); // Մուգ թափանցիկ ֆոն
+    backdrop-filter: blur(10px); // Ապակե (blur) էֆեկտ
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); // Թեթև ոսկեգույն եզրագիծ
+    transition: all 0.3s ease;
+}
+
+.headerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.avatarBorder {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    padding: 2px;
+    background: linear-gradient(135deg, #d4af37, #f3e5ab, #aa7c11); // Ոսկեգույն փայլուն եզրագիծ
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.08);
+    }
+}
+
+.avatarImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.logoText {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, #fff 30%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.bookBtn {
+    text-decoration: none;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    color: #000;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 25px; // Կլորացված ժամանակակից կոճակ
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive հարմարեցում փոքր էկրանների համար */
+@media (max-width: 768px) {
+    .headerContainer {
+        padding: 10px 16px;
+    }
+
+    .logoText {
+        font-size: 1rem;
+    }
+
+    .bookBtn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}

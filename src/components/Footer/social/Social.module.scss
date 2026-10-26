@@ -1,0 +1,17 @@
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+
+    a {
+        color: #f59e0b;
+        font-size: 14px;
+        font-weight: 600;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

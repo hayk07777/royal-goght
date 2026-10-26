@@ -1,0 +1,20 @@
+.navPanel {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    a {
+        font-size: 14px;
+        font-weight: 500;
+        color: #cbd5e1;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #f59e0b;
+        }
+    }
+}
