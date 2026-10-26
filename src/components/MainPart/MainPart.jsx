@@ -10,11 +10,11 @@ import zugImg from '../../assets/images/zug.webp'; // Խոհանոց/Սանհա�
 import asvaltImg from '../../assets/images/asvaltic.webp'; // Տեսքը ճանապարհից
 
 const poolGallery = [
-    { id: 1, src: poolImg, title: 'Ընդարձակ Լողավազան' },
+    { id: 1, src: poolImg, title: ' Լողավազան' },
 ];
 
 const gazeboGallery = [
-    { id: 1, src: bisoImg, title: 'Բեսետկա (35 անձ)' },
+    { id: 1, src: bisoImg, title: 'Տաղավար (35 անձ)' },
 ];
 
 const interiorGallery = [
@@ -69,13 +69,13 @@ const MainPart = () => {
                 <div className={styles.grid4}>
                     <div className={styles.card}>
                         <div className={styles.icon}>🏊‍♂️</div>
-                        <h3>Ընդարձակ Լողավազան</h3>
+                        <h3> Լողավազան</h3>
                         <p>Մաքուր և ընդարձակ լողավազան բակում</p>
                     </div>
                     <div className={styles.card}>
                         <div className={styles.icon}>🏕️</div>
-                        <h3>Բեսետկա (35 անձ)</h3>
-                        <p>Նախատեսված մեծ միջոցառումների համար</p>
+                        <h3>Տաղավար (35 անձ)</h3>
+                        <p>Նախատեսված միջոցառումների համար</p>
                     </div>
                     <div className={styles.card}>
                         <div className={styles.icon}>🥩</div>
@@ -84,7 +84,7 @@ const MainPart = () => {
                     </div>
                     <div className={styles.card}>
                         <div className={styles.icon}>⛰️</div>
-                        <h3>Սարերի Տեսարան</h3>
+                        <h3>Շքեղ Տեսարան</h3>
                         <p>Անկրկնելի panoramic տեսարան դեպի Գողթ</p>
                     </div>
                 </div>
