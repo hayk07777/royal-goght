@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import styles from './MainPart.module.scss';
-import poolImg from '../../assets/images/pool.png'; // Լողավազան
-import bisoImg from '../../assets/images/biso.PNG'; // Տաղավար (Բեսետկա)
-import zalImg from '../../assets/images/zal.PNG'; // Հյուրասենյակ
-import sen1Img from '../../assets/images/sen1.PNG'; // Առաջին ննջասենյակ
-import sen2Img from '../../assets/images/sen2.PNG'; // Երկրորդ ննջասենյակ
-import sen3Img from '../../assets/images/sen3.PNG'; // Երրորդ ննջասենյակ
-import zugImg from '../../assets/images/zug.PNG'; // Խոհանոց/Սանհանգույց
-import asvaltImg from '../../assets/images/asvaltic.png'; // Տեսքը ճանապարհից
+import poolImg from '../../assets/images/pool.webp'; // Լողավազան
+import bisoImg from '../../assets/images/biso.webp'; // Տաղավար (Բեսետկա)
+import zalImg from '../../assets/images/zal.webp'; // Հյուրասենյակ
+import sen1Img from '../../assets/images/sen1.webp'; // Առաջին ննջասենյակ
+import sen2Img from '../../assets/images/sen2.webp'; // Երկրորդ ննջասենյակ
+import sen3Img from '../../assets/images/sen3.webp'; // Երրորդ ննջասենյակ
+import zugImg from '../../assets/images/zug.webp'; // Խոհանոց/Սանհանգույց
+import asvaltImg from '../../assets/images/asvaltic.webp'; // Տեսքը ճանապարհից
 
-// Առանձնացնում ենք նկարներն ըստ բաժինների
 const poolGallery = [
     { id: 1, src: poolImg, title: 'Ընդարձակ Լողավազան' },
 ];
@@ -26,7 +25,6 @@ const interiorGallery = [
     { id: 5, src: zugImg, title: 'Խոհանոց' }
 ];
 
-// Տեսքը ճանապարհից (Միայն մեկ նկար)
 const roadViewGallery = [
     { id: 1, src: asvaltImg, title: 'Տան տեսքը ճանապարհից' },
 ];
@@ -99,22 +97,22 @@ const MainPart = () => {
 
                 <div className={styles.galleryGrid}>
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(poolGallery)}>
-                        <img src={poolGallery[0].src} alt="Լողավազան" />
+                        <img src={poolGallery[0].src} alt="Լողավազան" loading="lazy" />
                         <div className={styles.galleryOverlay}>🔍 Լողավազան</div>
                     </div>
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(gazeboGallery)}>
-                        <img src={gazeboGallery[0].src} alt="Տաղավար" />
+                        <img src={gazeboGallery[0].src} alt="Տաղավար" loading="lazy" />
                         <div className={styles.galleryOverlay}>🔍 Տաղավար (Բեսետկա)</div>
                     </div>
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(interiorGallery)}>
-                        <img src={interiorGallery[0].src} alt="Տան ներսը" />
+                        <img src={interiorGallery[0].src} alt="Տան ներսը" loading="lazy" />
                         <div className={styles.galleryOverlay}>🔍 Տան ներքին տեսքը (Սենյակները)</div>
                     </div>
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(roadViewGallery)}>
-                        <img src={roadViewGallery[0].src} alt="Տեսքը ճանապարհից" />
+                        <img src={roadViewGallery[0].src} alt="Տեսքը ճանապարհից" loading="lazy" />
                         <div className={styles.galleryOverlay}>🔍 Տեսքը ճանապարհից</div>
                     </div>
                 </div>
@@ -154,7 +152,7 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.instaBtn}`}
                     >
-                        📸 Instagram
+                         Instagram
                     </a>
 
                     <a
@@ -163,7 +161,7 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.fbBtn}`}
                     >
-                        📘 Facebook
+                        Facebook
                     </a>
 
                     <a
@@ -172,7 +170,7 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.tgBtn}`}
                     >
-                        ✈️ Telegram
+                         Telegram
                     </a>
                 </div>
             </section>
