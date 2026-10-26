@@ -6,7 +6,7 @@ const Contact = () => {
 
     return (
         <div className={styles.contactInfo}>
-            <p>📍 Հայաստան, Կոտայքի մարզ, գյուղ Գողթ</p>
+            <p>📍 ՀՀ Կոտայքի մարզ գյուղ Գողթ</p>
 
             {/* Phone with interactive popup/dropdown */}
             <div className={styles.phoneWrapper}>

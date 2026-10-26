@@ -103,7 +103,7 @@ const MainPart = () => {
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(gazeboGallery)}>
                         <img src={gazeboGallery[0].src} alt="Տաղավար" loading="lazy" />
-                        <div className={styles.galleryOverlay}>🔍 Տաղավար (Բեսետկա)</div>
+                        <div className={styles.galleryOverlay}>🔍 Տաղավար (Տաղավար)</div>
                     </div>
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(interiorGallery)}>
@@ -143,7 +143,7 @@ const MainPart = () => {
             {/* Contact / Social Links Section */}
             <section className={styles.section} id="contact">
                 <h2 className={styles.sectionTitle}>Կապ և Ամրագրում</h2>
-                <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապնվել մեզ հետ սոցիալական ցանցերով</p>
+                <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապ հաստատել մեզ հետ սոցիալական ցանցերով</p>
 
                 <div className={styles.socialButtonsContainer}>
                     <a
