@@ -9,7 +9,11 @@ const Header = () => {
                 {/* Լոգոն և Ավատարը */}
                 <div className={styles.logoWrapper}>
                     <div className={styles.avatarBorder}>
-                        <img src={`${process.env.PUBLIC_URL}/avatarka.png`} alt="Royal Goght Avatar" className={styles.avatarImg} />
+                        <img
+                            src={`${process.env.PUBLIC_URL}/avatarka.png`}
+                            alt="Royal Goght Avatar"
+                            className={styles.avatarImg}
+                        />
                     </div>
                     <span className={styles.logoText}>ROYAL GOGHT</span>
                 </div>
