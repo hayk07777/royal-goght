@@ -55,9 +55,9 @@ const MainPart = () => {
                 <div className={styles.heroContent}>
                     <span className={styles.badge}>ROYAL STAY IN GOGHT</span>
                     <h1>Royal Goght – Ձեր պրեմիում հանգիստը Գողթում</h1>
-                    <p>2 հարկանի հանգստյան տուն, լողավազան, 35 անձի համար բեսետկա և սարերի տեսարան</p>
+                    <p> Երկհարկանի հանգստյան տուն, լողավազան, տաղավար 35 անձի համար և շքեղ տեսարան</p>
                     <a href="#contact" className={styles.ctaBtn}>
-                        Կապնվել մեզ հետ
+                        Կապ հաստատել մեզ հետ
                     </a>
                 </div>
             </section>
