@@ -17,7 +17,7 @@ import sen3nerqevImg from '../../assets/images/sen3nerqev.webp';
 import zugnerqevImg from '../../assets/images/zugnerqev.webp';
 
 // 2-րդ հարկի (Վերև) նկարներ
-import zal1verevImg from '../../assets/images/zal1verev.webp'; // եթե ֆայլի ընդլայնումը .webp է, ավելացրու .webp
+import zal1verevImg from '../../assets/images/zal1verev.webp';
 import zal2verevImg from '../../assets/images/zal2verev.webp';
 import sen1verevImg from '../../assets/images/sen1verev.webp';
 import sen2verevImg from '../../assets/images/sen2verev.webp';
@@ -35,9 +35,9 @@ const gazeboGallery = [
 
 // 1-ին հարկ
 const floor1Gallery = [
-    { id: 3, src: zal3nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (3)' },
-    { id: 2, src: zal2nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (2)' },
     { id: 1, src: zal1nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (1)' },
+    { id: 2, src: zal2nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (2)' },
+    { id: 3, src: zal3nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (3)' },
     { id: 4, src: sen1nerqevImg, title: '1-ին հարկ - Ննջասենյակ 1' },
     { id: 5, src: sen2nerqevImg, title: '1-ին հարկ - Ննջասենյակ 2' },
     { id: 6, src: sen3nerqevImg, title: '1-ին հարկ - Ննջասենյակ 3' },
@@ -46,11 +46,11 @@ const floor1Gallery = [
 
 // 2-րդ հարկ
 const floor2Gallery = [
-    { id: 2, src: zal2verevImg, title: '2-րդ հարկ - Հյուրասենյակ (2)' },
     { id: 1, src: zal1verevImg, title: '2-րդ հարկ - Հյուրասենյակ (1)' },
+    { id: 2, src: zal2verevImg, title: '2-րդ հարկ - Հյուրասենյակ (2)' },
     { id: 3, src: sen1verevImg, title: '2-րդ հարկ - Ննջասենյակ 1' },
     { id: 4, src: sen2verevImg, title: '2-րդ հարկ - Ննջասենյակ 2' },
-    { id: 5, src: zug1verevImg, title: '2-րդ հարկ - Սանհանգույց / Խոհանոց' }
+    { id: 5, src: zug1verevImg, title: '2-րդ հարկ - Սանհանգույց ' }
 ];
 
 const roadViewGallery = [
@@ -68,12 +68,20 @@ const MainPart = () => {
 
     const nextImage = (e) => {
         e.stopPropagation();
-        setCurrentIndex((prev) => (prev + 1) % activeImages.length);
+        if (currentIndex === activeImages.length - 1) {
+            setActiveImages(null);
+        } else {
+            setCurrentIndex((prev) => prev + 1);
+        }
     };
 
     const prevImage = (e) => {
         e.stopPropagation();
-        setCurrentIndex((prev) => (prev - 1 + activeImages.length) % activeImages.length);
+        if (currentIndex === 0) {
+            setActiveImages(null);
+        } else {
+            setCurrentIndex((prev) => prev - 1);
+        }
     };
 
     return (
@@ -156,9 +164,7 @@ const MainPart = () => {
                 <div className={styles.modal} onClick={() => setActiveImages(null)}>
                     <span className={styles.closeBtn}>&times;</span>
 
-                    {activeImages.length > 1 && (
-                        <button className={styles.prevBtn} onClick={prevImage}>&#10094;</button>
-                    )}
+                    <button className={styles.prevBtn} onClick={prevImage}>&#10094;</button>
 
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                         <img src={activeImages[currentIndex].src} alt="Enlarged" />
@@ -167,9 +173,7 @@ const MainPart = () => {
                         </p>
                     </div>
 
-                    {activeImages.length > 1 && (
-                        <button className={styles.nextBtn} onClick={nextImage}>&#10095;</button>
-                    )}
+                    <button className={styles.nextBtn} onClick={nextImage}>&#10095;</button>
                 </div>
             )}
 
