@@ -230,22 +230,7 @@ const MainPart = () => {
                 </div>
             )}
 
-            {/* Location / Google Maps Section */}
-            <section className={styles.section} id="location">
-                <h2 className={styles.sectionTitle}>Գտնվելու վայրը</h2>
-                <p className={styles.sectionSubtitle}>Գեղարդի խճուղի 26/1, Գողթ, Կոտայքի մարզ</p>
-                <div className={styles.mapContainer}>
-                    <a
-                        href="https://maps.google.com/?q=Geghard+Highway+26/1,+Goght"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.mapBtn}
-                    >
-                        📍 Բացել Google Maps-ում
-                    </a>
-                </div>
-            </section>
-
+          
             {/* Contact Section */}
             <section className={styles.section} id="contact">
                 <h2 className={styles.sectionTitle}>Կապ և Ամրագրում</h2>
