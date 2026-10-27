@@ -88,8 +88,20 @@ const MainPart = () => {
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (!activeImages) return;
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') {
+                if (currentIndex === activeImages.length - 1) {
+                    setActiveImages(null);
+                } else {
+                    setCurrentIndex((prev) => prev + 1);
+                }
+            }
+            if (e.key === 'ArrowLeft') {
+                if (currentIndex === 0) {
+                    setActiveImages(null);
+                } else {
+                    setCurrentIndex((prev) => prev - 1);
+                }
+            }
             if (e.key === 'Escape') setActiveImages(null);
         };
 
