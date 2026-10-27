@@ -56,7 +56,7 @@
             border-radius: 10px;
             font-size: 16px;
             transition: all 0.3s;
-            
+
             &:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
@@ -286,7 +286,8 @@
 .tgBtn {
     background-color: #24a1de;
 }
-/* Thumbnails SCSS Modal-ի համար */
+
+// Thumbnails SCSS
 .thumbnailContainer {
     display: flex;
     justify-content: center;
@@ -311,13 +312,13 @@
 
         &.activeThumb {
             opacity: 1;
-            border: 2px solid #d4af37; // Ոսկեգույն outline
+            border: 2px solid #d4af37;
             transform: scale(1.05);
         }
     }
 }
 
-/* Location / Map styling */
+// Location / Map styling
 .mapContainer {
     display: flex;
     justify-content: center;
@@ -339,7 +340,7 @@
     }
 }
 
-/* Quick contact buttons */
+// Quick contact buttons
 .phoneBtn {
     background-color: #27ae60 !important;
     color: #fff !important;
