@@ -1,32 +1,60 @@
 import React, { useState } from 'react';
 import styles from './MainPart.module.scss';
-import poolImg from '../../assets/images/pool.webp'; // Լողավազան
-import bisoImg from '../../assets/images/biso.webp'; // Տաղավար (Բեսետկա)
-import zalImg from '../../assets/images/zal.webp'; // Հյուրասենյակ
-import sen1Img from '../../assets/images/sen1.webp'; // Առաջին ննջասենյակ
-import sen2Img from '../../assets/images/sen2.webp'; // Երկրորդ ննջասենյակ
-import sen3Img from '../../assets/images/sen3.webp'; // Երրորդ ննջասենյակ
-import zugImg from '../../assets/images/zug.webp'; // Խոհանոց/Սանհանգույց
-import asvaltImg from '../../assets/images/asvaltic.webp'; // Տեսքը ճանապարհից
 
+// Բակի և արտաքին տեսքի նկարներ
+import poolImg from '../../assets/images/pool.webp';
+import bisoImg from '../../assets/images/biso.webp';
+import balkonchikImg from '../../assets/images/balkonchik.webp';
+import asvaltImg from '../../assets/images/asvaltic.webp';
+
+// 1-ին հարկի (Ներքև) նկարներ
+import zal1nerqevImg from '../../assets/images/zal1nerqev.webp';
+import zal2nerqevImg from '../../assets/images/zal2nerqev.webp';
+import zal3nerqevImg from '../../assets/images/zal3nerqev.webp';
+import sen1nerqevImg from '../../assets/images/sen1nerqev.webp';
+import sen2nerqevImg from '../../assets/images/sen2nerqev.webp';
+import sen3nerqevImg from '../../assets/images/sen3nerqev.webp';
+import zugnerqevImg from '../../assets/images/zugnerqev.webp';
+
+// 2-րդ հարկի (Վերև) նկարներ
+import zal1verevImg from '../../assets/images/zal1verev.webp'; // եթե ֆայլի ընդլայնումը .webp է, ավելացրու .webp
+import zal2verevImg from '../../assets/images/zal2verev.webp';
+import sen1verevImg from '../../assets/images/sen1verev.webp';
+import sen2verevImg from '../../assets/images/sen2verev.webp';
+import zug1verevImg from '../../assets/images/zug1verev.webp';
+
+// Գալերեայի զանգվածներ (ստատիկ տվյալներ)
 const poolGallery = [
-    { id: 1, src: poolImg, title: ' Լողավազան' },
+    { id: 1, src: poolImg, title: 'Լողավազան' }
 ];
 
 const gazeboGallery = [
     { id: 1, src: bisoImg, title: 'Տաղավար (35 անձ)' },
+    { id: 2, src: balkonchikImg, title: 'Պատշգամբ / Տաղավար' }
 ];
 
-const interiorGallery = [
-    { id: 1, src: zalImg, title: 'Հյուրասենյակ' },
-    { id: 2, src: sen1Img, title: 'Առաջին ննջասենյակ' },
-    { id: 3, src: sen2Img, title: 'Երկրորդ ննջասենյակ' },
-    { id: 4, src: sen3Img, title: 'Երրորդ ննջասենյակ' },
-    { id: 5, src: zugImg, title: 'Խոհանոց' }
+// 1-ին հարկ
+const floor1Gallery = [
+    { id: 3, src: zal3nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (3)' },
+    { id: 2, src: zal2nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (2)' },
+    { id: 1, src: zal1nerqevImg, title: '1-ին հարկ - Հյուրասենյակ (1)' },
+    { id: 4, src: sen1nerqevImg, title: '1-ին հարկ - Ննջասենյակ 1' },
+    { id: 5, src: sen2nerqevImg, title: '1-ին հարկ - Ննջասենյակ 2' },
+    { id: 6, src: sen3nerqevImg, title: '1-ին հարկ - Ննջասենյակ 3' },
+    { id: 7, src: zugnerqevImg, title: '1-ին հարկ - Սանհանգույց' }
+];
+
+// 2-րդ հարկ
+const floor2Gallery = [
+    { id: 2, src: zal2verevImg, title: '2-րդ հարկ - Հյուրասենյակ (2)' },
+    { id: 1, src: zal1verevImg, title: '2-րդ հարկ - Հյուրասենյակ (1)' },
+    { id: 3, src: sen1verevImg, title: '2-րդ հարկ - Ննջասենյակ 1' },
+    { id: 4, src: sen2verevImg, title: '2-րդ հարկ - Ննջասենյակ 2' },
+    { id: 5, src: zug1verevImg, title: '2-րդ հարկ - Սանհանգույց / Խոհանոց' }
 ];
 
 const roadViewGallery = [
-    { id: 1, src: asvaltImg, title: 'Տան տեսքը ճանապարհից' },
+    { id: 1, src: asvaltImg, title: 'Տան տեսքը ճանապարհից' }
 ];
 
 const MainPart = () => {
@@ -55,7 +83,7 @@ const MainPart = () => {
                 <div className={styles.heroContent}>
                     <span className={styles.badge}>ROYAL STAY IN GOGHT</span>
                     <h1>Royal Goght – Ձեր պրեմիում հանգիստը Գողթում</h1>
-                    <p> Երկհարկանի հանգստյան տուն, լողավազան, տաղավար 35 անձի համար և շքեղ տեսարան</p>
+                    <p>Երկհարկանի հանգստյան տուն, լողավազան, տաղավար 35 անձի համար և շքեղ տեսարան</p>
                     <a href="#contact" className={styles.ctaBtn}>
                         Կապ հաստատել մեզ հետ
                     </a>
@@ -69,7 +97,7 @@ const MainPart = () => {
                 <div className={styles.grid4}>
                     <div className={styles.card}>
                         <div className={styles.icon}>🏊‍♂️</div>
-                        <h3> Լողավազան</h3>
+                        <h3>Լողավազան</h3>
                         <p>Մաքուր և ընդարձակ լողավազան բակում</p>
                     </div>
                     <div className={styles.card}>
@@ -103,12 +131,17 @@ const MainPart = () => {
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(gazeboGallery)}>
                         <img src={gazeboGallery[0].src} alt="Տաղավար" loading="lazy" />
-                        <div className={styles.galleryOverlay}>🔍 Տաղավար (Տաղավար)</div>
+                        <div className={styles.galleryOverlay}>🔍 Տաղավար (35 անձ)</div>
                     </div>
 
-                    <div className={styles.galleryItem} onClick={() => openGalleryModal(interiorGallery)}>
-                        <img src={interiorGallery[0].src} alt="Տան ներսը" loading="lazy" />
-                        <div className={styles.galleryOverlay}>🔍 Տան ներքին տեսքը (Սենյակները)</div>
+                    <div className={styles.galleryItem} onClick={() => openGalleryModal(floor1Gallery)}>
+                        <img src={floor1Gallery[0].src} alt="1-ին հարկ" loading="lazy" />
+                        <div className={styles.galleryOverlay}>🔍 1-ին Հարկ (Սենյակներ)</div>
+                    </div>
+
+                    <div className={styles.galleryItem} onClick={() => openGalleryModal(floor2Gallery)}>
+                        <img src={floor2Gallery[0].src} alt="2-րդ հարկ" loading="lazy" />
+                        <div className={styles.galleryOverlay}>🔍 2-րդ Հարկ (Սենյակներ)</div>
                     </div>
 
                     <div className={styles.galleryItem} onClick={() => openGalleryModal(roadViewGallery)}>
@@ -140,7 +173,7 @@ const MainPart = () => {
                 </div>
             )}
 
-            {/* Contact / Social Links Section */}
+            {/* Contact Section */}
             <section className={styles.section} id="contact">
                 <h2 className={styles.sectionTitle}>Կապ և Ամրագրում</h2>
                 <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապ հաստատել մեզ հետ սոցիալական ցանցերով</p>
@@ -152,7 +185,7 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.instaBtn}`}
                     >
-                         Instagram
+                        Instagram
                     </a>
 
                     <a
@@ -170,7 +203,7 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.tgBtn}`}
                     >
-                         Telegram
+                        Telegram
                     </a>
                 </div>
             </section>
