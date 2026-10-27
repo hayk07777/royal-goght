@@ -236,7 +236,7 @@ const MainPart = () => {
                 <h2 className={styles.sectionTitle}>Կապ և Ամրագրում</h2>
                 <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապ հաստատել մեզ հետ</p>
 
-                <div className={styles.socialButtonsContainer}>
+                {/* <div className={styles.socialButtonsContainer}>
                     <a href="tel:+37493305860" className={`${styles.socialBtn} ${styles.phoneBtn}`}>
                         📞 Զանգահարել
                     </a>
@@ -276,7 +276,7 @@ const MainPart = () => {
                     >
                         📘 Facebook
                     </a>
-                </div>
+                </div> */}
             </section>
         </main>
     );
