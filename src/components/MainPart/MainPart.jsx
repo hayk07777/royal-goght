@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './MainPart.module.scss';
 
 // Բակի և արտաքին տեսքի նկարներ
@@ -23,7 +23,7 @@ import sen1verevImg from '../../assets/images/sen1verev.webp';
 import sen2verevImg from '../../assets/images/sen2verev.webp';
 import zug1verevImg from '../../assets/images/zug1verev.webp';
 
-// Գալերեայի զանգվածներ (ստատիկ տվյալներ)
+// Գալերեայի զանգվածներ
 const poolGallery = [
     { id: 1, src: poolImg, title: 'Լողավազան' }
 ];
@@ -50,7 +50,7 @@ const floor2Gallery = [
     { id: 2, src: zal2verevImg, title: '2-րդ հարկ - Հյուրասենյակ (2)' },
     { id: 3, src: sen1verevImg, title: '2-րդ հարկ - Ննջասենյակ 1' },
     { id: 4, src: sen2verevImg, title: '2-րդ հարկ - Ննջասենյակ 2' },
-    { id: 5, src: zug1verevImg, title: '2-րդ հարկ - Սանհանգույց ' }
+    { id: 5, src: zug1verevImg, title: '2-րդ հարկ - Սանհանգույց / Խոհանոց' }
 ];
 
 const roadViewGallery = [
@@ -67,7 +67,7 @@ const MainPart = () => {
     };
 
     const nextImage = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         if (currentIndex === activeImages.length - 1) {
             setActiveImages(null);
         } else {
@@ -76,7 +76,7 @@ const MainPart = () => {
     };
 
     const prevImage = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         if (currentIndex === 0) {
             setActiveImages(null);
         } else {
@@ -84,9 +84,34 @@ const MainPart = () => {
         }
     };
 
+    // 1. Ստեղնաշարով թերթում (Left, Right, Escape)
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!activeImages) return;
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'Escape') setActiveImages(null);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [activeImages, currentIndex]);
+
+    // 2. Արգելափակում ենք էջի scroll-ը, երբ modal-ը բաց է
+    useEffect(() => {
+        if (activeImages) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [activeImages]);
+
     return (
         <main className={styles.mainPart}>
-            {/* Hero */}
+            {/* Hero Section */}
             <section className={styles.hero}>
                 <div className={styles.heroContent}>
                     <span className={styles.badge}>ROYAL STAY IN GOGHT</span>
@@ -98,7 +123,7 @@ const MainPart = () => {
                 </div>
             </section>
 
-            {/* Amenities */}
+            {/* Amenities Section */}
             <section className={styles.section} id="about">
                 <h2 className={styles.sectionTitle}>Ինչու՞ ընտրել Royal Goght-ը</h2>
                 <p className={styles.sectionSubtitle}>Ամեն ինչ ստեղծված է ձեր լիարժեք հանգստի և միջոցառումների համար</p>
@@ -126,7 +151,7 @@ const MainPart = () => {
                 </div>
             </section>
 
-            {/* Gallery */}
+            {/* Gallery Section */}
             <section className={styles.section} id="gallery">
                 <h2 className={styles.sectionTitle}>Լուսանկարներ</h2>
                 <p className={styles.sectionSubtitle}>Սեղմեք բաժինների վրա՝ նկարները մեծացնելու և դիտելու համար</p>
@@ -168,37 +193,64 @@ const MainPart = () => {
 
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                         <img src={activeImages[currentIndex].src} alt="Enlarged" />
+
                         <p className={styles.modalTitle}>
                             {activeImages[currentIndex].title} ({currentIndex + 1} / {activeImages.length})
                         </p>
+
+                        {/* Thumbnails (փոքր նկարներ ներքևում) */}
+                        {activeImages.length > 1 && (
+                            <div className={styles.thumbnailContainer}>
+                                {activeImages.map((img, idx) => (
+                                    <img
+                                        key={img.id || idx}
+                                        src={img.src}
+                                        alt="thumb"
+                                        className={`${styles.thumbnail} ${idx === currentIndex ? styles.activeThumb : ''}`}
+                                        onClick={() => setCurrentIndex(idx)}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <button className={styles.nextBtn} onClick={nextImage}>&#10095;</button>
                 </div>
             )}
 
+            {/* Location / Google Maps Section */}
+            <section className={styles.section} id="location">
+                <h2 className={styles.sectionTitle}>Գտնվելու վայրը</h2>
+                <p className={styles.sectionSubtitle}>Գեղարդի խճուղի 26/1, Գողթ, Կոտայքի մարզ</p>
+                <div className={styles.mapContainer}>
+                    <a
+                        href="https://maps.google.com/?q=Geghard+Highway+26/1,+Goght"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.mapBtn}
+                    >
+                        📍 Բացել Google Maps-ում
+                    </a>
+                </div>
+            </section>
+
             {/* Contact Section */}
             <section className={styles.section} id="contact">
                 <h2 className={styles.sectionTitle}>Կապ և Ամրագրում</h2>
-                <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապ հաստատել մեզ հետ սոցիալական ցանցերով</p>
+                <p className={styles.sectionSubtitle}>Ամրագրման և հարցերի համար կարող եք կապ հաստատել մեզ հետ</p>
 
                 <div className={styles.socialButtonsContainer}>
-                    <a
-                        href="https://www.instagram.com/royal_goght?rpxt=MWZhY2UxeGF1MmFlaA=="
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`${styles.socialBtn} ${styles.instaBtn}`}
-                    >
-                        Instagram
+                    <a href="tel:+37493305860" className={`${styles.socialBtn} ${styles.phoneBtn}`}>
+                        📞 Զանգահարել
                     </a>
 
                     <a
-                        href="https://www.facebook.com/share/1DvZdWZTh1/?mibextid=wwXIfr"
+                        href="https://wa.me/37493305860"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${styles.socialBtn} ${styles.fbBtn}`}
+                        className={`${styles.socialBtn} ${styles.waBtn}`}
                     >
-                        Facebook
+                        💬 WhatsApp
                     </a>
 
                     <a
@@ -207,7 +259,25 @@ const MainPart = () => {
                         rel="noopener noreferrer"
                         className={`${styles.socialBtn} ${styles.tgBtn}`}
                     >
-                        Telegram
+                        ✈️ Telegram
+                    </a>
+
+                    <a
+                        href="https://www.instagram.com/royal_goght?rpxt=MWZhY2UxeGF1MmFlaA=="
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.socialBtn} ${styles.instaBtn}`}
+                    >
+                        📸 Instagram
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/share/1DvZdWZTh1/?mibextid=wwXIfr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${styles.socialBtn} ${styles.fbBtn}`}
+                    >
+                        📘 Facebook
                     </a>
                 </div>
             </section>
